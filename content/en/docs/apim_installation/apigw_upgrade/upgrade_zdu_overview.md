@@ -119,6 +119,78 @@ Additionally, follow these steps:
 
 For more information on using OpenSSH, go to <https://www.openssh.com/>.
 
+### Cassandra schema zdupgrade
+
+[TODO Contact support to include the Cassandra ZDU script in the ZDU script package]
+
+This section describes how to use the Cassandra ZDU script.
+
+Cassandra schema changes will cause API Manager instances which are not yet upgraded to no longer be able to read/write to the changed tables. Because of this, a zdu script which duplicates the keyspace is created so that both versions of the gateway may still be used. This step must be done before attempting to upgrade the Gateway nodes. You only need to run this if the keyspace schema has changed. [TODO, create page for schema changes in cassandra... to see if the schema has changed, check out this page]
+
+#### Restrictions
+
+* A full backup of Cassandra data should be created and archived first. Please see how to perform a [backup and restore](#cassandra_bur).
+* There must be enough space on disk to duplicate the keyspace data.
+* The maximum number of rows in any one table is 2 million.
+* Once the keyspace is duplicated, new data written in the original keyspace will not be rewritten into the new keyspace. Therefore, please restrict any changes to the Cassandra data during the zdu process. No changes should be made to users, apis, etc.
+* The keyspace name must be environmentalized within the API Gateway configuration.
+* Disable API Portal
+
+#### Configure cqlsh
+
+Add the following into cqlsh config. These are to setup authentication, SSL trust, and CSV file parameters.
+
+```
+[authentication]
+;; If Cassandra has auth enabled, fill out these options
+username = cassandra
+password = cassandra
+; keyspace = ks1
+...
+
+[ssl]
+certfile = ~/.cassandra/cassandra-ca.pem
+...
+
+[csv]
+;; The size limit for parsed fields
+; default: field_size_limit = 131072
+; size limit is 10 MB
+field_size_limit = 10485760
+...
+```
+
+#### Configure clone keyspace script
+
+[TODO have these parameters be arguments, and change this section to "script options"]
+
+The following variables within the script must be changed to suit your environment.
+
+|Name|Description|
+|----|----|
+|cqlsh|Location of cqlsh utility|
+|sourceCassClusterHost|Hostname of the source cluster|
+|sourceCassClusterPort|Port of the source cluster|
+|sourceCassClusterUsr|Username of the source cluster|
+|sourceCassClusterPwd|Password of the source cluster|
+|targetCassClusterHost|Hostname of the target cluster|
+|targetCassClusterPort|Port of the target cluster|
+|targetCassClusterUsr|Username of the target cluster|
+|targetCassClusterPwd|Password of the target cluster|
+|apimSourceKeyspace|Name of the source keyspace|
+|apimTargetKeyspace|Name of the target keyspace|
+
+#### Cloning the keyspace
+
+The steps for running the script are as follows:
+
+1. Login to one of the nodes in the source cluster.
+2. Run `nodetool status` and ensure all nodes in the cluster are up and normal.
+3. Copy the cloning script on the machine.
+4. Review the restrictions, ensuring you are ready to run the script.
+5. Run the script `./clone-cassandra-keyspace.sh`.
+6. In case of any warnings or errors, please consult the logs.
+
 ### Run the zdupgrade script
 
 This section describes how to install and run the `zdupgrade` script. It also describes the log files produced by the script.
