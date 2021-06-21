@@ -1,19 +1,17 @@
 ---
-title: API Portal 7.7 <month> 2021 Release Notes
-linkTitle: API Portal <month> 2021
-draft: true
-weight: 100
-date: 2021-01-06
+title: API Portal 7.7 August 2021 Release Notes
+linkTitle: API Portal August 2021
+weight: 95
+date: 2021-06-21
 description: API Portal updates are cumulative, comprising new features and changes delivered in previous updates unless specifically indicated otherwise in the Release notes.
 ---
-
 ## Installation
 
 API Portal is available as a software installation or a virtualized deployment in a Docker container. For more information, see the following options:
 
 * If you are installing API Portal for the first time using this update, see [Install API Portal](/docs/apim_installation/apiportal_install/).
 * If you are already using API Portal (7.5.x, 7.6.x, 7.7.x) and want to install this update, see [Upgrade API Portal](/docs/apim_installation/apiportal_install/upgrade_automatic/).
-* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package to update your API Portal to the March 21 release.
+* You can use the [cumulative upgrade script](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-api-portal-using-the-cumulative-upgrade-script) to upgrade directly from earlier versions (for example, 7.5.5, 7.6.2) to API Portal [7.7 November](/docs/apim_relnotes/20201130_apip_relnotes/), then apply this update package to update your API Portal to the May 21 release.
 * See [API Portal single version upgrade](/docs/apim_installation/apiportal_install/upgrade_automatic/#upgrade-from-api-portal-7-6-2) to upgrade versions incrementally.
 
 ### Docker containers
@@ -23,20 +21,15 @@ API Portal is available as a software installation or a virtualized deployment i
 
 ## New features and enhancements
 
-### placeholder 1
+There are no new feature or enhancements in this update. This is a maintenance update consisting of defect fixes.
 
-placeholder text
-
-For more information, see:
-
-* [some reference 1](/docs/placeholder)
-* [some reference 2](/docs/placeholder)
+For a complete list of fixed issues, see [Fixed issues](#fixed-issues) section.
 
 ## Limitations of this update
 
 This update has the following limitations:
 
-* API Portal 7.7.20210330 is compatible with API Gateway and API Manager 7.7.20210330 only.
+* API Portal 7.7.20210830 is compatible with API Gateway and API Manager 7.7.20210830 only.
 * To upgrade from earlier versions (for example, 7.5.5, 7.6.2) you must first upgrade to [API Portal 7.7](/docs/apim_relnotes/201904_release/apip_relnotes/) only.
 * This update is not available as a virtual appliance or as a managed service on Axway Cloud.
 
@@ -48,9 +41,7 @@ There are no major changes in this update.
 
 ## Deprecated features
 
-<!-- As part of our software development life cycle we constantly review our API Management offering. In this update, the following capabilities have been deprecated. -->
-
-No features were deprecated in this release.
+There are no deprecated features in this update.
 
 ## Removed features
 
@@ -67,11 +58,11 @@ This version of API Portal includes:
 
 ### Fixed security vulnerabilities
 
-table of security issues
+table
 
 ### Other fixed issues
 
-table of other issues
+table of issues
 
 ## Known issues
 
