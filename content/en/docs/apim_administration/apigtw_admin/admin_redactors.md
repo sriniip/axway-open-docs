@@ -409,7 +409,7 @@ Supported HTML form content types are as follows:
 
 ## Redact raw message content
 
-You can redact specific plain text by configuring regular expressions to define content to be removed. The following shows a configuration example:
+API Gateway uses the `pcrepattern` ([PCRE](https://www.pcre.org/original/doc/html/pcrepattern.html)) regular expression engine. You can redact specific plain text by configuring regular expressions to define the content to be removed. The following shows a configuration example:
 
 ```
 <RawRedactor>
@@ -425,6 +425,8 @@ In this configuration model, the `Regex` element includes the following attribut
 * `exp`: Regular expression used to match the desired content. Possible values are valid regular expressions.
 * `redact`: Specifies which groups in the match are redacted. Possible values are comma-separated lists of group indexes (for example, `1` or `1,2` or `4,6,7`, and so on). You can specify `0` to redact the entire match.
 * `icase`: Specifies whether the match is case insensitive. Possible values are `true` (case insensitive) and `false` (case sensitive).
+* `multi`: Specifies whether the match is multi-line. In multi-line mode, `^` matches the beginning of line, and `$` matches the end of line. Defaults to `false`.
+* `utf`: Specifies whether the data being parsed is checked for valid UTF-8 characters. Defaults to `true`. `RawRedactor` cannot be used with non-UTF-8 characters.
 
 ### Example: Redact credit card details from raw text
 
@@ -478,6 +480,11 @@ The following shows a configuration example, at an `INFO` trace level, which use
         <Regex exp="\d{16}" redact="0" icase="false" />
 </TraceRedactor>
 ```
+
+The attributes of some `Regex` element have a different default behavior from raw redaction:
+
+* `multi`: Specifies whether the match is multi-line. In multi-line mode, `^` will matches the beginning of the line and `$` matches the end of line. Defaults to `true`.
+* `utf`: Specifies whether the data being parsed is checked for valid UTF-8 characters. Defaults to `false`. Some trace records at DATA level are to include binary data. Setting it to `true` will result in an error being logged for any record containing non-UTF-8 characters. Note that a PCRE command `(*UTF)` can be used at the beginning of the pattern to enable this feature at redaction time. This will result in no error logged but no redaction applied when non-UTF-8 characters are part of the data being redacted.
 
 Redaction for trace log records works as follows:
 
