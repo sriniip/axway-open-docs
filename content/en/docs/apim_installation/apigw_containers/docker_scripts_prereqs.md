@@ -57,6 +57,8 @@ The Quickstart demo `quickstart.sh` script enables you to quickly deploy a demo 
 
 This script builds a base API Gateway Docker image using an API Gateway Linux installer and a Docker image based on a standard CentOS7 operating system image.
 
+Lorem dolor sit amet, consectetur `adipiscing` elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
 {{< alert title="Caution" color="warning" >}}Docker tries to download the latest CentOS image from a remote registry, which may potentially contain security vulnerabilities. Axway is not responsible for any third-party base O/S images. You must ensure that all base O/S images are up-to-date and apply any security patches if necessary. See [Create a base image based on custom CentOS7/RHEL7](/docs/apim_installation/apigw_containers/docker_script_baseimage/#create-a-base-image-based-on-custom-centos7-rhel7) for details.{{< /alert >}}
 
 For the Quickstart help, run:
