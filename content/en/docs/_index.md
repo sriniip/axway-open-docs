@@ -10,7 +10,7 @@ menu:
 
 Axway Open Documentation is the new home for Axway product documentation that has been migrated to Markdown format and is available in a [public GitHub repository](https://github.com/Axway/axway-open-docs) to enable collaboration using an open source model.
 
-This website contains the entire documentation set for Amplify API Management 7.7. It also contains documentation for Amplify Central.
+Test change to this page. Do not approve. This website contains the entire documentation set for Amplify API Management 7.7. It also contains documentation for Amplify Central.
 
 ## Amplify API Management 7.7 documentation
 
