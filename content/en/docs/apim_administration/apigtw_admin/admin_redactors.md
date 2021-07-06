@@ -425,12 +425,26 @@ In this configuration model, the `Regex` element includes the following attribut
 * `exp`: Regular expression used to match the desired content. Possible values are valid regular expressions.
 * `redact`: Specifies which groups in the match are redacted. Possible values are comma-separated lists of group indexes (for example, `1` or `1,2` or `4,6,7`, and so on). You can specify `0` to redact the entire match.
 * `icase`: Specifies whether the match is case insensitive. Possible values are `true` (case insensitive) and `false` (case sensitive).
-* `multi`: Specifies whether the match is multi-line. In multi-line mode, `^` matches the beginning of line, and `$` matches the end of line. Defaults to `false`.
+* `multi`: Specifies whether the match is multi-line. In multi-line mode, `^` and `$` match the beginning and the end of any line within the redacted text. Defaults to `false`.
 * `utf`: Specifies whether the data being parsed is checked for valid UTF-8 characters. Defaults to `true`. `RawRedactor` cannot be used with non-UTF-8 characters.
+
+### Use of regular expressions
+
+Inefficiently written regular expressions might result in poor performance and excessive use of resources, such as memory, stack, and CPU.  See the [PCRE documentation](https://www.pcre.org/original/doc/html/pcreperform.html) for recommendations on how to ensure that your regular expressions are written correctly.
+
+To make your regular expressions more efficient, follow these tips:
+
+* Avoid using [excessive recursion](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC23) and [back references](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC19) in your patterns as much as possible.
+* Use [non-greedy patterns](https://www.pcre.org/original/doc/html/pcrepattern.html#SEC17) when possible.
+* Use multiple regex patterns instead of one complex pattern. Simple, specific patterns are more efficient than combining multiple patterns into a single expression with alternation. Alternation might consume excessive stack memory.
+
+Using recursive patterns might cause the stack to overflow, which has resulted in crashes. At startup, API Gateway evaluates the maximum recursion limit to use. To prevent crashes, that maximum recursion limit is dynamically lowered whenever the stack size is estimated to be dangerously low.
 
 ### Example: Redact credit card details from raw text
 
-This section shows some configured regular expressions and the behavior with specific raw message content. The following expression specifies to redact a defined group:
+This section shows some configured regular expressions and the behavior with specific raw message content.
+
+The following expression specifies to redact a defined group:
 
 ```
 <Regex exp="creditcard\s*=\s*(\d{16})" redact="1" icase="false"/>
