@@ -1,10 +1,10 @@
 {
 "title": "Glossary",
-  "linkTitle": "Glossary",
-  "weight": "99",
-  "date": "2019-11-07",
-  "hide_readingtime": "true",
-  "description": "Reference to AMPLIFY API Management and AMPLIFY Central terminology."
+"linkTitle": "Glossary",
+"weight":"99",
+"date": "2019-11-07",
+"hide_readingtime": "true",
+"description": "Reference to AMPLIFY API Management and Amplify Central terminology."
 }
 ## A
 
