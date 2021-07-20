@@ -21,7 +21,7 @@ The following steps give an example of how to upgrade Cassandra from version 2.2
 1. Stage 1 - Upgrade Cassandra from version 2.2.12 to version 2.2.19.
 2. Stage 2 - Upgrade Cassandra from version 2.2.19 to version 3.11.10.
 
-### Stage 1 - Upgrade Cassandra 2.2.12 to 2.2.19 
+### Stage 1 - Upgrade Cassandra 2.2.12 to 2.2.19
 
 #### Step 1 - Update Cassandra's driver configuration in the Gateway
 
@@ -38,19 +38,19 @@ The Cassandra driver protocol version must be set to use 'V3' prior to upgrading
     <ConfigurationFragment>
         <VMArg name="-DCASSANDRA_PROTOCOL_VERSION=3" />
     </ConfigurationFragment>
-    ``` 
+    ```
 3. Restart the API Gateway.
 
 #### Step 2 - Install Cassandra 2.2.19
 
-1. Download Cassandra 2.2.19 (available from: https://downloads.apache.org/cassandra/2.2.19/ ).
+1. Download Cassandra 2.2.19 (available from: <https://downloads.apache.org/cassandra/2.2.19/>).
 2. Unzip the downloaded Cassandra package.
 
     Copy the Cassandra 2.2.19 installation directory to the target Cassandra server node in an appropriate directory e.g. /home/cassandra-2219/.
 
 #### Step 3 - Backup Cassandra 2.2.12
 
-1. Find your Cassandra keyspace(s) to backup. 
+1. Find your Cassandra keyspace(s) to backup.
 
     Using cqlsh, execute the following command:
     ```
@@ -60,7 +60,7 @@ The Cassandra driver protocol version must be set to use 'V3' prior to upgrading
 
     ![API Management keyspaces](/Images/CassandraAdminGuide/cqlsh_keyspace.png)
 
-2. Backup Cassandra using the backup tool. 
+2. Backup Cassandra using the backup tool.
 
     The API Gateway backup tool is located in `install_dir/apigateway/tools/apigw-backup-tool`. To get started, you must copy the `apigw-backup-tool` folder to your Cassandra node. Update the `/conf/apigw-backup-tool.ini` file to configure your backup (see [Apache Cassandra backup and restore](/docs/cass_admin/cassandra_bur/#update-your-configuration-file)).
 
@@ -117,12 +117,15 @@ saved_caches
 #### Step 8 - Start Cassandra 2.2.19
 
 Run the following command from the `bin` directory  of the Cassandra 2.2.19 installation to start the Cassndra instance:
+
 ```
 $cd /home/cassandra-2219/cassandra/bin
 $./cassandra
+
 ```
 
 Note: When starting Cassandra, if the following exception occurs during the Cassandra startup process:
+
 ```
 Exception (java.lang.RuntimeException) encountered during startup: A node with address <host>/<IP> already exists, cancelling join. Use cassandra.replace_address if you want to replace this node.
 ```
@@ -146,9 +149,9 @@ You will need to use the `nodetool removenode` command to remove the old Cassan
     $ ./nodetool removenode 3c201a6f-441a-4510-93fd-53c2025073c3
     ```
 
-#### Step 9 - Repeat Steps 2-8 on all other Cassandra nodes in the cluster.
+#### Step 9 - Repeat Steps 2-8 on all other Cassandra nodes in the cluster
 
-#### Step 10 - Run nodetool repair on each Cassandra 2.2.19 node:
+#### Step 10 - Run nodetool repair on each Cassandra 2.2.19 node
 
 ```
 $cd /home/cassandra-2219/cassandra/bin
