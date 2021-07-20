@@ -146,6 +146,7 @@ You will need to use the `nodetool removenode` command to remove the old Cassan
     ```
 2. Then select the `Host ID` of the down (`DN`) node and remove it from the cluster using the `nodetool removenode` command:
     ```
+    $cd /home/cassandra-2219/cassandra/bin
     $ ./nodetool removenode 3c201a6f-441a-4510-93fd-53c2025073c3
     ```
 
@@ -158,16 +159,16 @@ $cd /home/cassandra-2219/cassandra/bin
 $./nodetool repair
 ```
 
-#### Step 11 - Repeat step 9-10 on any other DC, if applicable.
+#### Step 11 - Repeat step 9-10 on any other DC, if applicable
 
 ### Stage 1 - Upgrade Cassandra 2.2.19 to 3.11.10
 
 #### Step 12 - Install Cassandra 3.11.10
 
-1. Download Cassandra 3.11.10 (available from: https://downloads.apache.org/cassandra/3.11.10/ ).
+1. Download Cassandra 3.11.10 (available from: <https://downloads.apache.org/cassandra/3.11.10/>).
 2. Unzip the downloaded Cassandra package.
 
-    Copy the Cassandra 3.11.10 installation directory to the target Cassandra server node in an appropriate directory e.g. /home/cassandra-31110/. 
+    Copy the Cassandra 3.11.10 installation directory to the target Cassandra server node in an appropriate directory e.g. /home/cassandra-31110/.
 
 #### Step 13 - Repeat steps 2-11 (upgrading from Cassandra 2.2.19 to Cassandra 3.11.10)
 
