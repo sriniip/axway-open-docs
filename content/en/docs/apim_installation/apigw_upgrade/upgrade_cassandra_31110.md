@@ -103,6 +103,7 @@ If you have SSL certificates in your Cassandra 2.2.12 installation, copy them to
     $ps auwx | grep cassandra
     $sudo kill pid #Stop Cassandra
     ```
+
 #### Step 7 - Copy data from Cassandra 2.2.12 to Cassandra 2.2.19
 
 Copy the `CASSANDRA_HOME/data` directory to the corresponding directory in your Cassandra 2.2.19 directory (e.g. /home/cassandra-2219/cassandra/). The Cassandra 2.2.19 `data` directory should then have the following sub directories:
@@ -148,6 +149,7 @@ You will need to use the `nodetool removenode` command to remove the old Cassan
 #### Step 9 - Repeat Steps 2-8 on all other Cassandra nodes in the cluster.
 
 #### Step 10 - Run nodetool repair on each Cassandra 2.2.19 node:
+
 ```
 $cd /home/cassandra-2219/cassandra/bin
 $./nodetool repair
