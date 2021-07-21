@@ -3,14 +3,13 @@ title: Secure an API with OAuth
 linkTitle: Secure an API with OAuth
 weight: 50
 date: 2019-07-30T00:00:00.000Z
-description: >-
-  API proxies can be secured with a client authentication policy. Learn how to
-  set up an OAuth front-end security policy on an API proxy.
+description: API proxies can be secured with a client authentication policy.
+  Learn how to set up an OAuth front-end security policy on an API proxy.
 ---
 
 ## Before you start
 
-* You will need a client ID, issuer, and metadata path provided by your third-party OAuth server.
+* You need a client ID, issuer, and metadata path provided by your third-party OAuth server.
 * The authorization server must issue signed JWT access tokens.
 * The authorization server must issue tokens with `Amplify Central` in the `aud` claim.
 
