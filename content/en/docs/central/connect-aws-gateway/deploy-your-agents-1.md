@@ -201,14 +201,14 @@ Subscription notifications with email notifications can set both the subject and
 
 ```
 CENTRAL_SUBSCRIPTIONS_NOTIFICATIONS_SMTP_SUBSCRIBE_SUBJECT=Subscription Notification
-CENTRAL_SUBSCRIPTIONS_NOTIFICATIONS_SMTP_SUBSCRIBE_BODY=Subscription created for Catalog Item:  <a href= ${catalogItemUrl}> ${catalogItemName} </a> <br/>
+CENTRAL_SUBSCRIPTIONS_NOTIFICATIONS_SMTP_SUBSCRIBE_BODY=Subscription created for Catalog Item:  <a href= {{.CatalogItemURL}}> {{.CatalogItemName}} {{.CatalogItemID}}.</br></a>{{if .IsAPIKey}} Your API is secured using an APIKey credential:header:<b>{{.KeyHeaderName}}</b>/value:<b>{{.Key}}</b>{{else}} Your API is secured using OAuth token. You can obtain your token using grant_type=client_credentials with the following client_id=<b>{{.ClientID}}</b> and client_secret=<b>{{.ClientSecret}}</b>{{end}}
 Your API is secured using an APIKey credential:header:<b>${keyHeaderName}</b>/value:<b>${key}</b>
 CENTRAL_SUBSCRIPTIONS_NOTIFICATIONS_SMTP_SUBSCRIBE_OAUTH=Your API is secured using OAuth token. You can obtain your token using grant_type=client_credentials with the following client_id=<b>${clientID}</b> and client_secret=<b>${clientSecret}</b>
 CENTRAL_SUBSCRIPTIONS_NOTIFICATIONS_SMTP_SUBSCRIBE_APIKEYS=Your API is secured using an APIKey credential:header:<b>${keyHeaderName}</b>/value:<b>${key}</b>
 
 ```
 
-The agent will fill in the appropriate data for the variables specified, i.e., \${catalogItemUrl}, ${keyHeaderName} and ${authtemplate} before sending the SMTP message. The variables that may be used are the keys for the JSON data sent to the webhook endpoint, see [Subscription webhook notifications](#subscription-webhook-notifications).
+The agent will fill in the appropriate data for the variables specified, i.e., \{{.CatalogItemURL}}, {{.KeyHeaderName}} and {{.Authtemplate}} before sending the SMTP message. The variables that may be used are the keys for the JSON data sent to the webhook endpoint, see [Subscription webhook notifications](#subscription-webhook-notifications).
 
 ### Create your Discovery Agent environment file
 
