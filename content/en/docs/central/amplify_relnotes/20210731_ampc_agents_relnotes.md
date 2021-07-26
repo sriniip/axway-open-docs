@@ -1,4 +1,5 @@
 ---
+title: Amplify agents July 2021 Release Notes
 linkTitle: Amplify agents July 2021
 weight: 90
 date: 2021-07-26
