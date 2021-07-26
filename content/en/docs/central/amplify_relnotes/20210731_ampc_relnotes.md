@@ -1,9 +1,11 @@
+---
 linkTitle: Amplify Central July 2021
 weight: 90
 date: 2021-07-26
 description: Amplify Central enables the user to manage their provider /
   consumer view. For more information, see the Amplify Central documentation.
 ---
+
 ## New features and enhancements
 
 The following new features and enhancements are available in this update.
@@ -28,9 +30,7 @@ The Axway Central CLI includes the following enhancements:
 
 The Amplify Central WebUI is used by both the API providers and consumers to manage and consume APIs.
 
-The Amplify Central WebUI includes the following enhancements:  
-
-* 
+The Amplify Central WebUI includes the following enhancements:
 
 ### Axway APIM Gateway / AWS / Azure agents
 
@@ -54,7 +54,7 @@ Mesh governance includes the following enhancements:
 
 The following issues are fixed in this version of Amplify Central:
 
-* **Add fix here**. 
+* **Add fix here**.
 
 ## Known limitations
 
