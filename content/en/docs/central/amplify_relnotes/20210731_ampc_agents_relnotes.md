@@ -19,6 +19,7 @@ The following new features and enhancements are available in this update.
 
 * Traceability agent report Gateway traffic even when Amplify Gateway is used without API Manager. Since there is no service name in this situation, all API usage will be visible in API Observer under the `APIGatewayOnly-noServiceName` API. The details of each transacation is visible in the API traffic section of API Observe as any other transaction.
 * Traceability redaction feature is available for JMS properties. You can use the following properties: `TRACEABILITY_REDACTION_JMSPROPERTIES_SHOW` and `TRACEABILITY_REDACTION_JMSPROPERTIES_SANITIZE`. Refer to [JMS Trace redaction](/docs/central/connected_agent_common_reference/trace_redaction/#jms-properties-show-rules) and [JMS property sanitization](/docs/central/connected_agent_common_reference/trace_redaction/#jms-properties-value-sanitization-rules) topics.
+* Last activity time is reported to the platform each time agents are sending data to the Platform and also for each agent health check trigger.
 
 ### Amplify AWS Gateway agents enhancements
 
