@@ -23,7 +23,7 @@ The following new features and enhancements are available in this update.
 
 ### Amplify AWS Gateway agents enhancements
 
-* None
+* Use encrypted queues (default configuration) instead of standard queues.
 
 ### Amplify Azure agents enhancements
 
