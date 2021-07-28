@@ -10,7 +10,7 @@ This page describes the process of upgrading your Cassandra environment from ver
 
 ## Best practice
 
-* Your API Gateway must be upgraded to August 2021 release prior to upgrading your Cassandra environment. This is because changes have been made to the Cassandra client driver configuration to facilitate the upgrade process. 
+* Your API Gateway must be upgraded to August 2021 release prior to upgrading your Cassandra environment. This is because changes have been made to the Cassandra client driver configuration to facilitate the upgrade process.
 * In multi-datacenter clusters, upgrade every node in one datacenter before upgrading another datacenter. Upgrade and restart the nodes one at a time. Other nodes in the cluster continue to operate at the earlier version until all nodes are upgraded.
 * When upgrading a cluster on a single-datacenter or multi-datacenter setup, you must avoid any schema changes until the entire cluster has been upgraded to the same version.
 * Running `nodetool repair` on a Cassandra node will affect performance on a system running live traffic. It is recommended that you perform the Cassandra upgrade in the evening or during a maintenance window when the load is minimal.
@@ -24,7 +24,7 @@ The following steps give an example of how to upgrade Cassandra from version 2.2
 
 ## Cassandra upgrade steps – Single-node
 
-### Stage 1 - Upgrade Cassandra 2.2.8/2.2.12 to 2.2.19
+### Stage 1 - Upgrade Cassandra 2.2.8/2.2.12 to 2.2.19 (Single-node)
 
 #### Step 1 - Install Cassandra 2.2.19
 
@@ -123,7 +123,7 @@ $cd /home/cassandra-2219/cassandra/bin
 $./nodetool repair
 ```
 
-### Stage 2 - Upgrade Cassandra 2.2.19 to 3.11.10
+### Stage 2 - Upgrade Cassandra 2.2.19 to 3.11.10 (Single-node)
 
 #### Step 9 - Install Cassandra 3.11.10
 
@@ -144,7 +144,7 @@ $./nodetool upgradesstables
 
 ## Cassandra upgrade steps – Multi-node single datacenter
 
-### Stage 1 - Upgrade Cassandra 2.2.8/2.2.12 to 2.2.19
+### Stage 1 - Upgrade Cassandra 2.2.8/2.2.12 to 2.2.19 (Multi-node)
 
 Each node in your Cassandra cluster should be upgraded individually before moving to the next node in the cluster. The entire cluster must be upgraded before moving to Stage 2.
 
@@ -258,7 +258,7 @@ $cd /home/cassandra-2219/cassandra/bin
 $./nodetool repair
 ```
 
-### Stage 2 - Upgrade Cassandra 2.2.19 to 3.11.10
+### Stage 2 - Upgrade Cassandra 2.2.19 to 3.11.10 (Multi-node)
 
 #### Step 11 - Install Cassandra 3.11.10
 
@@ -306,8 +306,7 @@ Exception (java.lang.RuntimeException) encountered during startup: A node with a
 cassandra.replace_address if you want to replace this node.
 ```
 
-You will need to use the `nodetool removenode` command to remove the old Cassandra node from the cluster before starting the new 
-Cassandra node. This command must be performed from a different node than the one currently being upgraded.
+You will need to use the `nodetool removenode` command to remove the old Cassandra node from the cluster before starting the new Cassandra node. This command must be performed from a different node than the one currently being upgraded.
 
 1. Run `nodetool status` to get the list of nodes in the cluster and their respective Cassandra Host IDs:
     ```
@@ -326,4 +325,3 @@ Cassandra node. This command must be performed from a different node than the on
     $cd /home/cassandra-2219/cassandra/bin
     $ ./nodetool removenode 3c201a6f-441a-4510-93fd-53c2025073c3
     ```
-
