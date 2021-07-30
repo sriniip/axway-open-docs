@@ -6,7 +6,7 @@
     "description": "Upgrade Apache Cassandra from version 2.2.12 to version 3.11.10."
 }
 
-This page describes the process of upgrading your Cassandra environment from version 2.2.8/2.2.12 to version 3.11.10 with no downtime. The process involves upgrading each node and data center individually first to version 2.2.19 and then finally to the target version 3.11.10.
+This page describes the process of upgrading your Cassandra environment from version 2.2.8/2.2.12 to version 3.11.10 with no downtime. The process involves upgrading each node and data center individually first to version 2.2.19 and then finally to the target version of 3.11.10.
 
 ## Best practice
 
@@ -49,8 +49,7 @@ a-2219/.
 2. Backup Cassandra using the backup tool.
 
     The API Gateway backup tool is located in `install_dir/apigateway/tools/apigw-backup-tool`. To get started, you must copy the `apigw
--backup-tool` folder to your Cassandra node. Update the `/conf/apigw-backup-tool.ini` file to configure your backup (see [Apache Cassand
-ra backup and restore](/docs/cass_admin/cassandra_bur/#update-your-configuration-file)).
+-backup-tool` folder to your Cassandra node. Update the `/conf/apigw-backup-tool.ini` file to configure your backup (see [Apache Cassandra backup and restore](/docs/cass_admin/cassandra_bur/#update-your-configuration-file)).
 
     After the configuration is set and Cassandra is running, run the following command to validate the configuration:
     ```
@@ -299,6 +298,8 @@ To upgrade Apache Cassandra in a multi-DC setup, you can follow the same steps a
 
 ## Troubleshooting
 
+### Error when starting Cassandra
+
 When starting Cassandra, if the following exception occurs during the Cassandra startup process:
 
 ```
@@ -325,3 +326,9 @@ You will need to use the `nodetool removenode` command to remove the old Cassan
     $cd /home/cassandra-2219/cassandra/bin
     $ ./nodetool removenode 3c201a6f-441a-4510-93fd-53c2025073c3
     ```
+
+### Restoring to Cassandra 2.2.8/2.2.12
+
+In the event of a failed migration, it is possible to restore your Cassandra environment to its original 2.2.8/2.2.12 state using the backup data created in Step 2.
+
+Follow the steps detailed in [Restore API Management and KPS keyspaces](/docs/cass_admin/cassandra_bur/#restore-api-management-and-kps-keyspaces-manually) for this procedure.
