@@ -37,7 +37,7 @@ The Axway Central CLI is a package for managing Amplify Central resources with a
 
 **Axway Central CLI** version 1.21.0 is now available on NPM (<https://www.npmjs.com/package/@axway/axway-central-cli/v/1.21.0>).
 
-The Axway Central CLI extension is compatible with the Axway CLI **version 2.2.0** (<https://www.npmjs.com/package/axway/v/2.1.0>).
+The Axway Central CLI extension is compatible with the Axway CLI **version 2.2.0** (<https://www.npmjs.com/package/axway/v/2.2.0>).
 
 The Axway Central CLI includes the following enhancements:
 
