@@ -22,6 +22,10 @@ Any custom `.fed` files deployed to a container must be upgraded using [upgradec
 
 The following new features and enhancements are available in this update.
 
+### API Gateway ELK Solution
+
+This update confirms that the ELK *(ElasticSearch/Logstash/Kibana)* solution for APIGW has been tested and is production ready.
+
 ### placeholder
 
 placeholder

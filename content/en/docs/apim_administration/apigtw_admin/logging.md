@@ -251,6 +251,10 @@ You can also select a relative path or service in the tree, and configure the fo
 
 When finished, click **Apply Changes** at the bottom of the page.
 
+## Configure ELK Logging
+
+There is now the option to configure a new ELK solution for logging in the API Gateway. This approach utilises ElasticSearch, Logstash and Kibana to provide a new centralised and customisable logging alternative. For more information on this solution, please see the [Axway APIGW ELK Implementation](https://github.com/Axway-API-Management-Plus/apigateway-openlogging-elk)
+
 ## Further information
 
 For more details on real-time monitoring and traffic monitoring, see [Monitor services in API Gateway Manager](/docs/apim_administration/apigtw_admin/monitor_service).
