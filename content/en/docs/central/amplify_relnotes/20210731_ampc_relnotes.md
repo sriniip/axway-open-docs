@@ -11,33 +11,14 @@ description: Amplify Central enables the user to manage their provider /
 
 The following new features and enhancements are available in this update.
 
-### Axway CLI / Axway Central CLI
-
-The Axway CLI is a package for managing Amplify resources with a DevOps approach to API Management.
-
-**Axway CLI** version 2.2.0 has been released on NPM (<https://www.npmjs.com/package/axway/v/2.2.0>)
-
-Axway CLI includes the following enhancements:
-
-* CLI extension packages are checked for updates and notification is displayed in the banner message.
-* 32-bit architecture support deprecation warning is displayed in the banner.
-* Support for authenticating a service account and upgrade to platform account using tooling credentials.
-* Auth login --client-secret flow is a non-interative command only.
-* The org view displays org teams and child orgs have been removed.
-* Org and User activity changes are correctly displayed.
-* Org usage is correctly including bundles and unlimited quotas.
-* Directory/file permissions are automatically set when running as sudo.
-* Show list of packages to update/purge and prompt to continue.
-* Removed dependency on Registry Server with direct npm queries.
-* Package name and version displayed during installation.
-* Fixed --json output when result is undefined.
-* Fixed error of overwriting the Axway CLI config when installing packages.
+### Axway Central CLI
 
 The Axway Central CLI is a package for managing Amplify Central resources with a DevOps approach to API Management.
 
 **Axway Central CLI** version 1.21.0 is now available on NPM (<https://www.npmjs.com/package/@axway/axway-central-cli/v/1.21.0>).
 
 The Axway Central CLI extension is compatible with the Axway CLI **version 2.2.0** (<https://www.npmjs.com/package/axway/v/2.2.0>).
+More infornation about Axway CLI can be foud here: [Axway CLI release note](https://docs.axway.com/bundle/axwaycli-open-docs/page/docs/release_notes/2_2_0_20210730_relnotes/index.html)
 
 The Axway Central CLI includes the following enhancements:
 
